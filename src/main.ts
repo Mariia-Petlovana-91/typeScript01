@@ -1,7 +1,10 @@
 import { username, age, toggle, empty, callback } from './basic/1';
 import { person } from './basic/2';
 import { multi, FILTER } from './basic/3';
-import { showMessage,calc,customError } from './basic/4';
+import { showMessage, calc, customError } from './basic/4';
+import { isWeekend, DayOfWeek } from './basic/5';
+import { poly,mango } from './basic/6';
+
 
 console.log(`Користувач ${username} будівельник.Йому років ${age}`);
 console.log(`${toggle} і ${empty}`);
@@ -24,7 +27,7 @@ console.log(onClick('enable'));
 console.log(onClick('disable'));
 console.log(onClick('Hello😁'));
 
-function seyHello(number:number): void{
+function seyResult(number:number): void{
   if (number <= calc(4, 1)) {
     showMessage("Ви вказали правильне число");
   } else {
@@ -32,8 +35,16 @@ function seyHello(number:number): void{
     customError();
   }
 }
-seyHello(2);
-seyHello(9);
+seyResult(2);
+// seyResult(9);
+
+console.log(isWeekend(DayOfWeek.Monday));
+console.log(isWeekend(DayOfWeek.Saturday));
+
+
+console.log(poly);
+console.log(mango);
+
 
 
 
