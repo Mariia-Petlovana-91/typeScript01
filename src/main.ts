@@ -1,6 +1,6 @@
 import { username, age, toggle, empty, callback } from './basic/1';
 import { person } from './basic/2';
-import { multi, FILTER } from './basic/3';
+import { multi, FILTERS } from './basic/3';
 import { showMessage, calc, customError } from './basic/4';
 import { isWeekend, DayOfWeek } from './basic/5';
 import { poly,mango } from './basic/6';
@@ -14,10 +14,10 @@ console.log(result);
 console.log(`Користувач ${person[0]} аніматор.Йому років ${person[1]}`);
 
 function onClick(string: string) : string {
-  if (string === FILTER.DISABLE) {
-    return `Ви клацнули ${FILTER.DISABLE}!`
-  } else if(string === FILTER.ENABLE) {
-    return `Ви клацнули ${FILTER.ENABLE}!`
+  if (string === FILTERS.DISABLE) {
+    return `Ви клацнули ${FILTERS.DISABLE}!`
+  } else if(string === FILTERS.ENABLE) {
+    return `Ви клацнули ${FILTERS.ENABLE}!`
   } else {
     return `Опції "${string}" не існує!`
   }
