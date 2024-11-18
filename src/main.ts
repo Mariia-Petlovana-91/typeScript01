@@ -1,70 +1,44 @@
-import './style.css'
-import typescriptLogo from './typescript.svg'
-import viteLogo from '/vite.svg'
-import { setupCounter } from './counter.ts'
+import { username, age, toggle, empty, callback } from './basic/1';
+import { person } from './basic/2';
+import { multi, FILTER } from './basic/3';
+import { showMessage,calc,customError } from './basic/4';
 
-document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
-  <div>
-    <a href="https://vite.dev" target="_blank">
-      <img src="${viteLogo}" class="logo" alt="Vite logo" />
-    </a>
-    <a href="https://www.typescriptlang.org/" target="_blank">
-      <img src="${typescriptLogo}" class="logo vanilla" alt="TypeScript logo" />
-    </a>
-    <h1>Vite + TypeScript</h1>
-    <div class="card">
-      <button id="counter" type="button"></button>
-    </div>
-    <p class="read-the-docs">
-      Click on the Vite and TypeScript logos to learn more
-    </p>
-  </div>
-`
+console.log(`Користувач ${username} будівельник.Йому років ${age}`);
+console.log(`${toggle} і ${empty}`);
+const result: number = callback(age);
+console.log(result);
 
-setupCounter(document.querySelector<HTMLButtonElement>('#counter')!)
-function add(num1: number, num2: number) {
-  return num1 + num2;
+console.log(`Користувач ${person[0]} аніматор.Йому років ${person[1]}`);
+
+function onClick(string: string) : string {
+  if (string === FILTER.DISABLE) {
+    return `Ви клацнули ${FILTER.DISABLE}!`
+  } else if(string === FILTER.ENABLE) {
+    return `Ви клацнули ${FILTER.ENABLE}!`
+  } else {
+    return `Опції "${string}" не існує!`
+  }
 }
+console.log(multi);
+console.log(onClick('enable'));
+console.log(onClick('disable'));
+console.log(onClick('Hello😁'));
 
-let notSure: any = 4;
-notSure = 'maybe a string instead';
-notSure = false;
-notSure = {};
-
-let num: number;
-
-num = notSure;
-
-export {};
-
-console.log(add(notSure, num));
-
-function fetchUserData(id: string, callback: (data: any) => void): void {
-  // Тут може бути якийсь запит, але ми його заповнимо самі
-  const responseData = { name: 'Tom' };
-
-  callback(responseData);
+function seyHello(number:number): void{
+  if (number <= calc(4, 1)) {
+    showMessage("Ви вказали правильне число");
+  } else {
+    console.log('Упссс Ви вказали неправильне число!Бай,бай🥺')
+    customError();
+  }
 }
+seyHello(2);
+seyHello(9);
 
-// Використання функції:
-fetchUserData('123', (data) => {
-  console.log(data.name); // TypeScript не викличе помилку, навіть якщо поле name не існує
-});
 
-export { };
-  
-  function fetchUserata(id: string, callback: (data: any) => void): void {
-  // Тут може бути якийсь запит, але ми його заповнимо самі
-  const responseData = { name: 'Tom' };
 
-  callback(responseData);
-}
 
-// Використання функції:
-fetchUserata('123', (data) => {
-  console.log(data.name); // TypeScript не викличе помилку, навіть якщо поле name не існує
-});
 
-export { };
+
   
 
